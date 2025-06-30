@@ -1,0 +1,71 @@
+
+body {
+  background: linear-gradient(-45deg, #c1f0f6, #ffdde1, #c1f0f6, #e0c3fc);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  padding: 20px;
+  text-align: center;
+}
+
+
+h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: #6a11cb;
+  margin-bottom: 25px;
+}
+
+button {
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-weight: bold;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transition: 0.3s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+#name, #Accuracy {
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #1e90ff;
+}
+
+canvas {
+  border: 5px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  margin-top: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(8px);
+}
+
+
+.modal-content {
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border: none;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  background-color: #a18cd1;
+  color: white;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.modal-footer {
+  background-color: #f8f9fa;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.img-fluid {
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
