@@ -1,23 +1,13 @@
 let canvas, classifier;
+let isModelReady = false;
 
 function setup() {
   canvas = createCanvas(400, 400);
   canvas.center();
   background("pink");
+
   classifier = ml5.imageClassifier("DoodleNet", modelLoaded);
   canvas.mouseReleased(classifyCanvas);
-}
-
-function classifyCanvas() {
-  classifier.classify(canvas, gotResult);
-}
-
-function gotResult(results) {
-  console.log(results);
-}
-
-function modelLoaded() {
-  console.log("The model is loaded");
 }
 
 function draw() {
@@ -28,15 +18,30 @@ function draw() {
   }
 }
 
+function modelLoaded() {
+  console.log("Model Loaded");
+  isModelReady = true;
+}
+
+function classifyCanvas() {
+  if (isModelReady) {
+    classifier.classify(canvas, gotResult);
+  }
+}
+
+function gotResult(results) {
+  if (results && results[0]) {
+    const label = results[0].label;
+    const accuracy = (results[0].confidence * 100).toFixed(2);
+
+    document.getElementById("name").innerHTML = label;
+    document.getElementById("Accuracy").innerHTML = accuracy + "%";
+  }
+}
+
 function clearCanvas() {
   background("pink");
+  document.getElementById("name").innerHTML = "--";
+  document.getElementById("Accuracy").innerHTML = "--";
 }
-function modelReady(){
-    console.log('Model is ready...')
-    classifier.classifyStart(gotResult);
-}
-function gotResult(Results){
-    console.log(Results);
-    document.getElementById('name').innerHTML=Results[0].label
-    document.getElementById('Accuracy').innerHTML=(Results[0].confidence*100).toFixed(2)+ "%";
-}
+
